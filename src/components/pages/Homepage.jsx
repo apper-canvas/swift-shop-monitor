@@ -12,24 +12,10 @@ const Homepage = () => {
   const [sortBy, setSortBy] = useState('name');
   const [priceRange, setPriceRange] = useState([0, 1000]);
   
-  const loadProducts = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      // Mock API call - replace with actual API endpoint
-      const response = await fetch('/api/products');
-      if (!response.ok) {
-        throw new Error('Failed to fetch products');
-      }
-      const data = await response.json();
-      setProducts(data || []);
-    } catch (err) {
-      console.error('Error loading products:', err);
-      setError(err.message || 'Failed to load products');
-      setProducts([]);
-    } finally {
-      setLoading(false);
-    }
+const loadProducts = async () => {
+    // Products are loaded by ProductGrid component
+    // This function is kept for compatibility but not used
+    console.log('Homepage loadProducts - handled by ProductGrid');
   };
   
   const handleClearFilters = () => {
